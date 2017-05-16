@@ -253,6 +253,7 @@ npm install // will install the dependencies
 ng server //start the server
 Any Transformation for presentation will be taken care by pipe (customized pipe)
 
+PURE FUNCTION in ANGULAR 2.0 --- only new data is sent else the entire object.
 
 
 
