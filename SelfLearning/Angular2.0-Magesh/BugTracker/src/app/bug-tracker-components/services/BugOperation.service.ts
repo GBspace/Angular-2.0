@@ -3,7 +3,8 @@ export class BugOperationService{
     createNew(bugName : string ) : IBug {
         var newBug : IBug = {
             name : bugName,
-            isClosed : false
+            isClosed : false,
+            createdAt : new Date()
         };
         return newBug;
     }
