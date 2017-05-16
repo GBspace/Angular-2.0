@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 import { GreeterComponent } from './greeter/greeter.component' 
 
 import { AppComponent } from './app.component';
+import { SalaryCalculatorComponent } from './SalaryCalculator/SalaryCalculator.component';
 
 @NgModule({
   declarations: [    
     AppComponent,
-    GreeterComponent
+    GreeterComponent,
+    SalaryCalculatorComponent
   ],
   imports: [        
     BrowserModule,

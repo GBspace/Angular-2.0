@@ -7,8 +7,18 @@ import { BugOperationService } from './services/BugOperation.service';
     templateUrl : './bug-tracker.component.html'
 })
 export class BugTrackerComponent{
+    
+    
     constructor(private _bugOperation : BugOperationService){
+        this.populateTestData();
     }
+    
+    private populateTestData(){
+		this.bugs.push(this._bugOperation.createNew('Server communication error'));
+		this.bugs.push(this._bugOperation.createNew('User actions not recognized'));
+		this.bugs.push(this._bugOperation.createNew('Application not responding'));
+		this.bugs.push(this._bugOperation.createNew('Data integrity error'));
+	}
     
     bugs : Array<IBug> = [];
     

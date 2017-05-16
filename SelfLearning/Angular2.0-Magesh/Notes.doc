@@ -1,0 +1,277 @@
+var vs let
+const //not changable
+
+function add(x,y){
+    return x+y;
+} //in javascript
+
+function(x,y){
+     x = x || 0;
+     y = y || 0;
+     return x+y;
+} // in javascript to handle default values , can be called by either or both arguments
+ 
+function add (x = 0,y = 0){
+    return x+y;
+} //in ES6 , can be invoked by either or both the arguments. Same as method above.
+
+
+ARROW FUNCTIONS in Javascript ( Equivalent to LAmbda in python):
+
+function add(x,y){
+    return x+y;
+} //in javascript
+
+var add = function(x,y){
+return x+y;
+} // in javascript
+
+var add = (x,y) =>{
+return x+y;
+} //in ES6
+
+var add = (x,y) => x+y; //Works same as above in ES6
+ numbers = [1,2,3,4,2,3,46];
+var evenNumbers = numbers.filter(n){
+return 
+}
+var evenNumbers = numbers.filter(n => n % 2 === 0 )  // method n is taken as an argument to exisiting function
+
+
+var emp = {
+    id: 100;
+    name : garimjai;
+    city: blr;
+    display: function display(){
+    console.log(this.id,this.name);
+    }
+}
+
+var {id, name} =  emp;
+id; // 100
+city; //blr
+
+var {city:ecity , id:eid } = emp;
+ecity; // 
+eid; // 
+
+var numbers = [1,2,3,4]
+var [first, second] = numbers;
+first; //1
+second; //2
+
+var [first, second , ...remaining] = numbers  // use ... in a variable used to recieve a value is REST operator, use ... with a variable to send a array is spread operator
+first; //1
+second; //2
+remaining; // [3,4]
+
+SWAPPING:
+
+var [first, third] = [third, first];
+
+function add(x,y){
+  
+}
+
+add(...remaining); //Spread
+
+var add = (...x) => {  // REST operator
+ var result = 0;
+ for(var index = 0; index < x.length ; index ++)
+    result += x[index];
+ return result;
+}
+
+add(10,20,30,40,50); //150
+
+CLASSES:
+
+class Employee{
+    constructor(id,name){
+     this.__id = id;  //id is made private variable 
+     this.name = name;
+    }
+    
+    get id(){
+     console.log("GETTER");
+     return this.__id;
+    }
+    
+    set id(value){
+        console.log("SETTER");
+        if(value < 0){
+            console.log("NEGATIVE VAlue");
+        }else{
+            this.__id = value;
+            
+        }
+        
+    }
+    
+    display(){
+        console.log(`ID is ${this.id} , name is ${this.name}`);
+    }
+
+}
+
+var emp = new Employee(886290,'garimjai');
+emp.display(); // internally it is stored as a function but you cannot declare class using var as in javascript
+
+
+
+
+template String in ES6:
+var x=100;
+console.log(`Value of x is ${x}`); //Value of x is 100
+
+INHERITANCE:
+
+class fullTimeEmployee extends Employee{
+constructor(id,name,salary){
+    super(id,name);
+    this.salary = salary;
+}
+    display(){
+        console.log("DISPLAY of FULLTIMEEMployee ");
+        console.log(`id= ${this.id} , name is ${this.name} , salary is ${this.salary}`);
+    }
+}
+
+var fte = new fullTimeEmployee(1,abc,2000);
+fte.id;
+fte.name;
+fte.salary;
+
+NEW DATA TYPE IN ES6:  SYMBOL
+
+Unique type, type of its own
+
+symbol can be used as an attribute of an object. Every symbol instance is unique.
+symbol brings truly private concept. Private objects can be accessed using objects directly. inorder to solve this, symbol are used.
+
+let EmployeeOuter = (function(){
+    let sym = Symbol();
+class Employee{
+    constructor(id,name){
+    // this.__id = id;  //id is made private variable 
+    
+    this[sym] = id;
+     this.name = name;
+    }
+    
+    get id(){
+     console.log("GETTER");
+     return this[sym];
+    }
+    
+    set id(value){
+        console.log("SETTER");
+        if(value < 0){
+            console.log("NEGATIVE VAlue");
+        }else{
+             this[sym] = id;
+            
+        }
+        
+    }
+    
+    display(){
+        console.log(`ID is ${this.id} , name is ${this.name}`);
+    }
+
+}
+return Employee;
+
+})();
+var emp = new Employee(886290,'garimjai');
+emp.display(); // internally it is stored as a function but you cannot declare class using var as in javascript
+
+MODULES:
+
+IMPORT and EXPORT
+
+
+Web Componnets:
+
+Angular 2.0 is based on the concept of "Application is a Composition of Components"
+
+interoperability of different components on UI.
+example:  we have a weather widget and a map widget. 
+
+My application should be able to host both the widgets and should be able to interact. 
+
+So, the standard was created known as web components which has the following properties: 
+Interaction, Presentation, Atomic, Inputs and Outputs, Customization.  {SIMILAR to DIRECTIVES in ANGULAR 1.0}
+
+
+
+Building blocks of ANGULAR 2:
+
+--> Componets
+--> Directive {component without template}
+--> Pipe
+--> Service
+--> Module
+
+
+WebPack takes care of bundleing all the build activities.
+
+Build process is taken care of currenlty by global angular-cli build configuartions
+
+platformBrowserDynamic().bootstrapModule(AppModule);  //application would start execution from this module "AppModule", all the entitites should register to the module
+
+
+@NgModule({
+  declarations: [    //create a conpoment, directive, pipe as in any UI entity, declare them in the declaration section. 
+    AppComponent
+  ],
+  imports: [        // components defined in other modules.
+    BrowserModule,
+    FormsModule,
+    HttpModule
+  ],
+  providers: [],     // service should be here
+  bootstrap: [AppComponent] // starting point of the modules
+})
+export class AppModule { }     // this class has become a module because it is decorated with NgModule.
+
+AppComponent.ts---
+
+@Component({   
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {    // class decorated with @Component
+  title = 'app works!';
+}
+
+(click)="onClearClick() --> Event binding
+
+ng new NewProject // Create typescript project with the name NewProject
+npm install // will install the dependencies
+ng server //start the server
+Any Transformation for presentation will be taken care by pipe (customized pipe)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
