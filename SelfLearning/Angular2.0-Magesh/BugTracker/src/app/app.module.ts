@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { BugTrackerComponent } from './bug-tracker-components/bugTracker.component';
 import { BugOperationService } from './bug-tracker-components/services/BugOperation.service';
+import { TrimTextPipe } from './bug-tracker-components/pipes/trimText.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BugTrackerComponent
+    BugTrackerComponent,
+    TrimTextPipe
   ],
   imports: [
     BrowserModule,
