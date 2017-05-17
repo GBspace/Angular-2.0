@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IBug } from './Model/IBug';
-import { BugOperationService } from './services/BugOperation.service';
+//import { BugOperationService } from './services/BugOperation.service';
 import { BugStorageService } from './services/BugStorage.service';
+
+declare var fetch;
 
 @Component({
     selector : 'bug-tracker',
     templateUrl : './bug-tracker.component.html'
 })
-export class BugTrackerComponent{
+export class BugTrackerComponent implements OnInit{
     
+    ngOnInit(){
+        fetch('http://localhost:3000/bugs')
+        .then(response => response.json())
+        .then((bugs) => this.bugs = bugs);
+    }
     
     constructor(private bugStorage : BugStorageService){
 //        this.populateTestData();
