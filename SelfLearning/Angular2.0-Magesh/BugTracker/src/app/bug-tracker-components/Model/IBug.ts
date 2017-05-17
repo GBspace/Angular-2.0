@@ -1,5 +1,6 @@
 export interface IBug{
-    name : String,
-    isClosed : boolean,
-    createdAt :  Date
+	id : number,
+	name : string,
+	isClosed : boolean,
+	createdAt : Date
 };
