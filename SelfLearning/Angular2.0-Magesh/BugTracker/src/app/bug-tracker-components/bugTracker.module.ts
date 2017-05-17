@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 
-import { UtilsModule } from '../Utils/utils.module';
+import { UtilsModule } from '../utils/utils.module';
 
 import { BugTrackerComponent } from './bugTracker.component';
 import { BugOperationService } from './services/BugOperation.service';
@@ -11,18 +11,19 @@ import { ClosedCountPipe } from './pipes/closedCount.pipe';
 import { BugStatsComponent } from './bug-stats/bug-stats.component';
 import { BugEditComponent } from './bug-edit/bug-edit.component';
 import { BugStorageService } from './services/BugStorage.service';
+import { BugServerService } from './services/BugServer.service';
 
 @NgModule({
 	declarations : [
 		BugTrackerComponent,
 		ClosedCountPipe,
 		BugStatsComponent,
-		BugEditComponent,
-//        BugSortComponent
+		BugEditComponent
 	],
 	providers : [
 		BugOperationService,
-        BugStorageService
+		BugStorageService,
+		BugServerService
 	],
 	imports : [
 		UtilsModule,
